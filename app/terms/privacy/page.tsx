@@ -68,11 +68,7 @@ export default function Terms() {
           <li>Service Providers: Trusted third-party services that assist with app operations, such as analytics or communication tools.   </li>
 
           <li>Legal Requirements: Information may be disclosed to comply with legal obligations or protect our legal rights.   </li>
-
         </ul>
-
-
-        
 
         <p className="font-bold mb-4">4. Your Rights and Choices </p>  
 
