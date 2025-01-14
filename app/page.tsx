@@ -1,45 +1,10 @@
 'use client';
 
+import React from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import HomeContent from "./terms/components/HomeContent";
 
 export default function Home() {
-  const [days, setdaysSpan] = useState<string | number>();
-  const [hours, sethoursSpan] = useState<string | number>();
-
-  function getTimeRemaining(endtime: Date) {
-    const total = endtime.getTime() - new Date().getTime();
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-
-    return {
-      total,
-      days,
-      hours,
-      minutes,
-      seconds
-    };
-  }
-
-  function initializeClock(endtime: Date) {
-    function updateClock() {
-      const t = getTimeRemaining(endtime);
-
-      setdaysSpan(t.days);
-      sethoursSpan(('0' + t.hours).slice(-2));
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  }
-
-  useEffect(() => {
-    const deadline = new Date(new Date().getFullYear(), 11);
-		initializeClock(deadline);
-  }, [])
-
   return (
     <div id="body-wrap">
       <div className="row">
@@ -52,25 +17,9 @@ export default function Home() {
 
             <div className="main-content">
 
-              <div className="page-title">
-
-                <h2>Estamos por lanzar en Diciembre!</h2>
-
-                <div id="countdown-clock">
-                  <div className="time">
-                    <span className="days">{days}</span>
-                    <small>Days</small>
-                  </div>
-                  <div className="time">
-                    <span className="hours">{hours}</span>
-                    <small>Hours</small>
-                  </div>
-                </div>
-
-              </div>
-
-              <p>Espera nuestra aplicación en EUA y Latinoamérica. Búscanos en Apple Store y Google Play Store</p>
-
+              {/* new content */}
+              <HomeContent />
+              {/* end new content */}
               <div className="social-links">
                 <ul>
                   <li>
